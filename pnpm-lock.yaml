@@ -8,6 +8,9 @@ dependencies:
   '@mikro-orm/core':
     specifier: ^5.7.14
     version: 5.7.14(@mikro-orm/postgresql@5.7.14)
+  '@mikro-orm/knex':
+    specifier: ^5.7.14
+    version: 5.7.14(@mikro-orm/core@5.7.14)(pg@8.11.1)
   '@mikro-orm/postgresql':
     specifier: ^5.7.14
     version: 5.7.14(@mikro-orm/core@5.7.14)
