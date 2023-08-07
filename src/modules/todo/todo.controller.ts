@@ -22,10 +22,7 @@ export class TodoController {
 
   @Post()
   createTodo({ title, boardId }: CreateTodoDto) {
-    return this.todoService.createTodo({
-      title,
-      boardId,
-    });
+    return this.todoService.createTodo(title, boardId);
   }
 
   @Delete(':todoId')

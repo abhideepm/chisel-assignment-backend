@@ -13,13 +13,13 @@ export class Board extends BaseEntity {
     type: 'uuid',
     onCreate: () => 'uuid_generate_v4()',
   })
-  id = '';
+  id!: string;
 
   @Property({ type: 'text' })
-  title = '';
+  title!: string;
 
-  @Property({ type: 'text' })
-  description = '';
+  @Property({ type: 'text', nullable: true })
+  description?: string;
 
   [EntityRepositoryType]?: BoardRepository;
 }

@@ -1,13 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { TodoRepository } from 'src/repositories/todo.repository';
-import { CreateTodoDto } from './dtos/todo.dto';
 import { TodoStatus } from 'src/entities/todo.entity';
+import { TodoRepository } from 'src/repositories/todo.repository';
 
 @Injectable()
 export class TodoService {
   constructor(private readonly todoRepository: TodoRepository) {}
 
-  async createTodo({ title, boardId }: CreateTodoDto) {
+  async createTodo(title: string, boardId: string) {
     const todo = this.todoRepository.create({
       title,
       boardId,
