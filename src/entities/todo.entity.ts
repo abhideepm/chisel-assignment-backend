@@ -2,13 +2,19 @@ import {
   Cascade,
   Entity,
   EntityRepositoryType,
+  Enum,
   ManyToOne,
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-import { Board } from './board.entity';
-import { BaseEntity } from './base.entity';
 import { TodoRepository } from 'src/repositories/todo.repository';
+import { BaseEntity } from './base.entity';
+import { Board } from './board.entity';
+
+enum TodoStatus {
+  IN_PROGRESS = 'IN_PROGRESS',
+  DONE = 'DONE',
+}
 
 @Entity({ customRepository: () => TodoRepository })
 export class Todo extends BaseEntity {
@@ -29,6 +35,12 @@ export class Todo extends BaseEntity {
     cascade: [Cascade.ALL],
   })
   boardId!: string;
+
+  @Enum({
+    items: () => TodoStatus,
+    nullable: false,
+  })
+  status!: TodoStatus;
 
   [EntityRepositoryType]?: TodoRepository;
 }
