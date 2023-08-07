@@ -11,7 +11,7 @@ import { TodoRepository } from 'src/repositories/todo.repository';
 import { BaseEntity } from './base.entity';
 import { Board } from './board.entity';
 
-enum TodoStatus {
+export enum TodoStatus {
   IN_PROGRESS = 'IN_PROGRESS',
   DONE = 'DONE',
 }
@@ -26,9 +26,6 @@ export class Todo extends BaseEntity {
 
   @Property({ type: 'text' })
   title!: string;
-
-  @Property({ type: 'text' })
-  description!: string;
 
   @ManyToOne(() => Board, {
     mapToPk: true,
