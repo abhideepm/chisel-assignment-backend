@@ -14,7 +14,6 @@ import {
   UpdateBoardDto,
   UpdateBoardParamsDto,
 } from './dto/board.dto';
-import { DEFAULT_FACTORY_CLASS_METHOD_KEY } from '@nestjs/common/module-utils/constants';
 
 @Controller('board')
 export class BoardController {

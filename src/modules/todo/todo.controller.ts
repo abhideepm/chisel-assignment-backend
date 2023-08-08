@@ -21,7 +21,7 @@ export class TodoController {
   constructor(private readonly todoService: TodoService) {}
 
   @Post()
-  createTodo({ title, boardId }: CreateTodoDto) {
+  createTodo(@Body() { title, boardId }: CreateTodoDto) {
     return this.todoService.createTodo(title, boardId);
   }
 

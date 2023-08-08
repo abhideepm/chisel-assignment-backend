@@ -10,6 +10,7 @@ import {
 import { TodoRepository } from 'src/repositories/todo.repository';
 import { BaseEntity } from './base.entity';
 import { Board } from './board.entity';
+import { v4 } from 'uuid';
 
 export enum TodoStatus {
   IN_PROGRESS = 'IN_PROGRESS',
@@ -20,7 +21,7 @@ export enum TodoStatus {
 export class Todo extends BaseEntity {
   @PrimaryKey({
     type: 'uuid',
-    onCreate: () => 'uuid_generate_v4()',
+    onCreate: () => v4(),
   })
   id!: string;
 

@@ -6,12 +6,13 @@ import {
 } from '@mikro-orm/core';
 import { BaseEntity } from './base.entity';
 import { BoardRepository } from 'src/repositories/board.repository';
+import { v4 } from 'uuid';
 
 @Entity({ customRepository: () => BoardRepository })
 export class Board extends BaseEntity {
   @PrimaryKey({
     type: 'uuid',
-    onCreate: () => 'uuid_generate_v4()',
+    onCreate: () => v4(),
   })
   id!: string;
 
